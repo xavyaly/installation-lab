@@ -267,8 +267,14 @@ eksctl delete cluster --name test-cluster-1 --region eu-central-1
 ```
 
 
+# Download Docker and Docker Compose 
+
+```
+https://www.linuxtechi.com/install-use-docker-on-ubuntu/
+```
+
 # Install minikube in ubuntu 
 
 ```
-
+https://www.linuxtechi.com/how-to-install-minikube-on-ubuntu/
 ```
