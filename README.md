@@ -265,3 +265,10 @@ Use "helm [command] --help" for more information about a command.
 ```
 eksctl delete cluster --name test-cluster-1 --region eu-central-1
 ```
+
+
+# Install minikube in ubuntu 
+
+```
+
+```
