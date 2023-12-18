@@ -142,6 +142,21 @@ sudo mv ./kubectl /usr/local/bin/
 $ kubectl version
 Client Version: version.Info{Major:"1", Minor:"23", GitVersion:"v1.23.6", GitCommit:"ad3338546da947756e8a88aa6822e9c11e7eac22", GitTreeState:"clean", BuildDate:"2022-04-14T08:49:13Z", GoVersion:"go1.17.9", Compiler:"gc", Platform:"linux/amd64"}
 Unable to connect to the server: dial tcp: lookup FFEB553AED7BA9189E5B8C4671EF9838.gr7.eu-central-1.eks.amazonaws.com on 127.0.0.53:53: no such host
+
+$ kubectl version -o yaml
+clientVersion:
+  buildDate: "2022-04-14T08:49:13Z"
+  compiler: gc
+  gitCommit: ad3338546da947756e8a88aa6822e9c11e7eac22
+  gitTreeState: clean
+  gitVersion: v1.23.6
+  goVersion: go1.17.9
+  major: "1"
+  minor: "23"
+  platform: linux/amd64
+
+Unable to connect to the server: dial tcp: lookup FFEB553AED7BA9189E5B8C4671EF9838.gr7.eu-central-1.eks.amazonaws.com on 127.0.0.53:53: no such host
+ubuntu@ip-172-31-5-162:~$ 
 ```
 
 
