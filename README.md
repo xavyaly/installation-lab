@@ -131,13 +131,17 @@ Usage:
 
 Use "kubectl <command> --help" for more information about a given command.
 Use "kubectl options" for a list of global command-line options (applies to all commands).
-
+```
 
 # Install specific kubectl version 
 
+```
 curl -LO "https://storage.googleapis.com/kubernetes-release/release/v1.23.6/bin/linux/amd64/kubectl"
 chmod +x ./kubectl
 sudo mv ./kubectl /usr/local/bin/
+$ kubectl version
+Client Version: version.Info{Major:"1", Minor:"23", GitVersion:"v1.23.6", GitCommit:"ad3338546da947756e8a88aa6822e9c11e7eac22", GitTreeState:"clean", BuildDate:"2022-04-14T08:49:13Z", GoVersion:"go1.17.9", Compiler:"gc", Platform:"linux/amd64"}
+Unable to connect to the server: dial tcp: lookup FFEB553AED7BA9189E5B8C4671EF9838.gr7.eu-central-1.eks.amazonaws.com on 127.0.0.53:53: no such host
 ```
 
 
