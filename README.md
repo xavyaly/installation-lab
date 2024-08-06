@@ -2,7 +2,7 @@
 
 # Install eksctl in ubuntu
 
-```
+'''
 $ curl --silent --location "https://github.com/weaveworks/eksctl/releases/latest/download/eksctl_$(uname -s)_amd64.tar.gz" | tar xz -C /tmp
 
 $ sudo mv /tmp/eksctl /usr/local/bin
@@ -47,11 +47,11 @@ Use 'eksctl [command] --help' for more information about a command.
 
 
 For detailed docs go to https://eksctl.io/
-```
+'''
 
 # Install kubectl in ubuntu
 
-```
+'''
 curl -LO "https://storage.googleapis.com/kubernetes-release/release/$(curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt)/bin/linux/amd64/kubectl"
 
 chmod +x ./kubectl 
@@ -131,11 +131,11 @@ Usage:
 
 Use "kubectl <command> --help" for more information about a given command.
 Use "kubectl options" for a list of global command-line options (applies to all commands).
-```
+'''
 
 # Install specific kubectl version 
 
-```
+'''
 curl -LO "https://storage.googleapis.com/kubernetes-release/release/v1.23.6/bin/linux/amd64/kubectl"
 chmod +x ./kubectl
 sudo mv ./kubectl /usr/local/bin/
@@ -157,12 +157,12 @@ clientVersion:
 
 Unable to connect to the server: dial tcp: lookup FFEB553AED7BA9189E5B8C4671EF9838.gr7.eu-central-1.eks.amazonaws.com on 127.0.0.53:53: no such host
 ubuntu@ip-172-31-5-162:~$ 
-```
+'''
 
 
 # HELM Installation
 
-```
+'''
 curl -fsSL -o get_helm.sh https://raw.githubusercontent.com/helm/helm/master/scripts/get-helm-3
 
 chmod 700 get_helm.sh
@@ -276,24 +276,132 @@ Flags:
       --repository-config string        path to the file containing repository names and URLs (default "/home/ubuntu/.config/helm/repositories.yaml")
 
 Use "helm [command] --help" for more information about a command.
-```
+'''
 
 
 # Remove eks cluster completely
 
-```
+'''
 eksctl delete cluster --name test-cluster-1 --region eu-central-1
-```
+'''
 
 
 # Download Docker and Docker Compose 
 
-```
-https://www.linuxtechi.com/install-use-docker-on-ubuntu/
-```
+'''
+[Link](https://www.linuxtechi.com/install-use-docker-on-ubuntu/)
+'''
 
 # Install minikube in ubuntu 
 
-```
-https://www.linuxtechi.com/how-to-install-minikube-on-ubuntu/
-```
+'''
+[Link](https://www.linuxtechi.com/how-to-install-minikube-on-ubuntu/)
+'''
+
+# Sample Dockerfile
+
+'''
+cat Dockerfile 
+# Use the official Node.js image.
+# https://hub.docker.com/_/node
+FROM node:18-alpine
+
+# Create and change to the app directory.
+WORKDIR /usr/src/app
+
+# Copy application dependency manifests to the container image.
+COPY package*.json ./
+
+# Install dependencies.
+RUN npm install
+
+# Copy local code to the container image.
+COPY . .
+
+# Run the web service on container startup.
+CMD [ "npm", "start" ]
+
+# Document that the service listens on port 3000.
+EXPOSE 3000
+'''
+
+# Install awscli
+
+'''
+cat awscli.sh 
+
+curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
+sudo apt install unzip
+unzip awscliv2.zip
+sudo ./aws/install
+'''
+
+# Clean the system 
+
+'''
+cat clean.sh 
+
+# Remove all stopped containers
+docker container prune
+
+# Remove all unused images
+docker image prune -a
+
+# Remove all unused volumes
+docker volume prune
+
+# Remove all unused networks
+docker network prune
+'''
+
+# Install docker
+
+'''
+cat docker.sh 
+
+sudo apt install docker.io
+sudo usermod -aG docker $USER && newgrp docker
+sudo apt install -y curl wget apt-transport-https
+'''
+
+# Install helm
+
+'''
+cat helm.sh 
+
+curl -fsSL -o get_helm.sh https://raw.githubusercontent.com/helm/helm/main/scripts/get-helm-3
+chmod 700 get_helm.sh
+./get_helm.sh
+'''
+
+# Install kubectl
+
+'''
+cat kubectl.sh 
+
+curl -LO https://storage.googleapis.com/kubernetes-release/release/`curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt`/bin/linux/amd64/kubectl
+chmod +x kubectl
+sudo mv kubectl /usr/local/bin
+
+kubectl version -o yaml
+'''
+
+# Download minikube
+
+'''
+cat minikube.sh 
+
+curl -LO https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64
+sudo install minikube-linux-amd64 /usr/local/bin/minikube
+minikube version
+'''
+
+# Delete and start minikube
+
+'''
+cat minikube-install.sh 
+
+minikube delete
+minikube start --disk-size=20g --driver=docker
+'''
+
