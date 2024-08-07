@@ -404,5 +404,6 @@ cat minikube-install.sh
 
 minikube delete
 minikube start --disk-size=20g --driver=docker
+minikube status
 '''
 
