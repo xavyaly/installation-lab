@@ -359,6 +359,7 @@ docker network prune
 '''
 cat docker.sh 
 
+sudo apt update
 sudo apt install docker.io
 sudo usermod -aG docker $USER && newgrp docker
 sudo apt install -y curl wget apt-transport-https
